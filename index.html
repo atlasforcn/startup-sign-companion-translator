@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIGN 你身邊｜手語轉語音情境翻譯 App Demo</title>
+    <meta
+      name="description"
+      content="SIGN 你身邊手語轉語音情境翻譯 App 靜態互動 demo，含模擬辨識、即時翻譯、語音播報佇列與無障礙設定。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#app">跳到操作介面</a>
+
+    <header class="site-header">
+      <div class="header-grid">
+        <div class="brand-block">
+          <p class="eyebrow">111 年（2022）第一梯次成功案例｜ICT</p>
+          <h1>SIGN 你身邊</h1>
+          <p class="lead">全台首創即時「手語轉語音」中文繁體 App 概念情境原型</p>
+        </div>
+        <section class="source-panel" aria-labelledby="source-title">
+          <h2 id="source-title">比賽與來源資訊</h2>
+          <dl class="source-list">
+            <div>
+              <dt>比賽來源</dt>
+              <dd>大專校院創新創業實戰模擬學習平臺</dd>
+            </div>
+            <div>
+              <dt>年度</dt>
+              <dd>111 年（2022）</dd>
+            </div>
+            <div>
+              <dt>屆次/階段</dt>
+              <dd>第一梯次成功案例</dd>
+            </div>
+            <div>
+              <dt>團隊/公司</dt>
+              <dd>Deep Course</dd>
+            </div>
+            <div>
+              <dt>學校</dt>
+              <dd>國立政治大學</dd>
+            </div>
+            <div>
+              <dt>類別</dt>
+              <dd>ICT</dd>
+            </div>
+            <div>
+              <dt>作品名稱</dt>
+              <dd>【SIGN你身邊】全台首創即時『手語轉語音』的中文繁體APP</dd>
+            </div>
+            <div>
+              <dt>官方來源</dt>
+              <dd><a href="https://ssp.moe.gov.tw/cases/153">ssp.moe.gov.tw/cases/153</a></dd>
+            </div>
+          </dl>
+          <p class="disclaimer">
+            免責聲明：這是依公開得獎資訊與概念自行製作的興趣原型，不是原團隊官方 demo 或產品。本 demo 使用情境化模擬，不包含真正電腦視覺辨識模型。
+          </p>
+        </section>
+      </div>
+    </header>
+
+    <main id="app" class="app-shell">
+      <section class="control-strip" aria-label="辨識狀態總覽">
+        <div class="status-chip" id="cameraStatus">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>鏡頭待命</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">辨識信心</span>
+          <strong id="confidenceValue">--%</strong>
+        </div>
+        <div class="metric">
+          <span class="metric-label">已處理片段</span>
+          <strong id="frameCount">0</strong>
+        </div>
+        <div class="metric">
+          <span class="metric-label">佇列</span>
+          <strong id="queueCount">0</strong>
+        </div>
+      </section>
+
+      <div class="workspace">
+        <section class="panel camera-panel" aria-labelledby="camera-title">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Step 1</p>
+              <h2 id="camera-title">鏡頭/辨識狀態模擬</h2>
+            </div>
+            <span class="mode-pill" id="recognitionMode">待命模式</span>
+          </div>
+
+          <div class="camera-stage" aria-label="手語辨識模擬畫面">
+            <div class="scan-frame">
+              <span class="corner top-left"></span>
+              <span class="corner top-right"></span>
+              <span class="corner bottom-left"></span>
+              <span class="corner bottom-right"></span>
+              <div class="hand-figure" aria-hidden="true">
+                <span class="finger finger-one"></span>
+                <span class="finger finger-two"></span>
+                <span class="finger finger-three"></span>
+                <span class="finger finger-four"></span>
+                <span class="palm"></span>
+                <span class="thumb"></span>
+              </div>
+              <div class="scan-line" aria-hidden="true"></div>
+              <p id="gestureHint">請啟動模擬鏡頭，或選擇下方手勢片段。</p>
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button class="btn primary" type="button" id="startCamera">啟動模擬鏡頭</button>
+            <button class="btn secondary" type="button" id="scanGesture">模擬辨識</button>
+            <button class="btn ghost" type="button" id="pauseCamera">暫停</button>
+          </div>
+        </section>
+
+        <section class="panel gesture-panel" aria-labelledby="gesture-title">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Step 2</p>
+              <h2 id="gesture-title">手勢片段選擇</h2>
+            </div>
+            <span class="mode-pill" id="selectedGestureLabel">尚未選擇</span>
+          </div>
+          <div class="gesture-grid" id="gestureGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="panel translator-panel" aria-labelledby="translator-title">
+          <div class="panel-heading">
+            <div>
+              <p class="panel-kicker">Step 3</p>
+              <h2 id="translator-title">即時翻譯文字</h2>
+            </div>
+            <span class="mode-pill live">即時字幕</span>
+          </div>
+          <div class="translation-box" aria-live="polite">
+            <p id="translationText">尚未產生翻譯。請選擇手勢片段後按下「模擬辨識」。</p>
+          </div>
+          <label class="field-label" for="manualText">現場補充文字</label>
+          <textarea id="manualText" rows="3" placeholder="可輸入要播報的補充句，例如：請用文字回覆我。"></textarea>
+          <div class="button-row">
+            <button class="btn primary" type="button" id="addToQueue">加入播報佇列</button>
+            <button class="btn secondary" type="button" id="speakNow">立即播報</button>
+            <button class="btn ghost" type="button" id="copyText">複製文字</button>
+            <button class="btn danger" type="button" id="clearText">清空</button>
+          </div>
+        </section>
+
+        <aside class="side-stack">
+          <section class="panel queue-panel" aria-labelledby="queue-title">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">Voice</p>
+                <h2 id="queue-title">語音播報佇列</h2>
+              </div>
+              <button class="icon-btn" type="button" id="clearQueue" aria-label="清空播報佇列">清空</button>
+            </div>
+            <ol class="queue-list" id="queueList"></ol>
+            <p class="empty-state" id="queueEmpty">佇列目前是空的。</p>
+          </section>
+
+          <section class="panel quick-panel" aria-labelledby="quick-title">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">Cards</p>
+                <h2 id="quick-title">常用語快速卡</h2>
+              </div>
+            </div>
+            <div class="quick-grid" id="quickGrid"></div>
+          </section>
+
+          <section class="panel accessibility-panel" aria-labelledby="access-title">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">Access</p>
+                <h2 id="access-title">無障礙設定</h2>
+              </div>
+            </div>
+            <div class="setting-list">
+              <label class="toggle-line">
+                <input type="checkbox" id="largeText">
+                <span>大字模式</span>
+              </label>
+              <label class="toggle-line">
+                <input type="checkbox" id="reduceMotion">
+                <span>降低動態</span>
+              </label>
+              <label class="toggle-line">
+                <input type="checkbox" id="captionMode" checked>
+                <span>字幕提示</span>
+              </label>
+              <label class="toggle-line">
+                <input type="checkbox" id="boostContrast" checked>
+                <span>提高對比</span>
+              </label>
+              <label class="range-line" for="speechRate">
+                <span>語速 <strong id="rateValue">1.0x</strong></span>
+                <input type="range" id="speechRate" min="0.7" max="1.3" step="0.1" value="1">
+              </label>
+            </div>
+          </section>
+
+          <section class="panel history-panel" aria-labelledby="history-title">
+            <div class="panel-heading">
+              <div>
+                <p class="panel-kicker">Log</p>
+                <h2 id="history-title">對話紀錄</h2>
+              </div>
+              <button class="icon-btn" type="button" id="clearHistory" aria-label="清空對話紀錄">清空</button>
+            </div>
+            <ul class="history-list" id="historyList"></ul>
+          </section>
+        </aside>
+      </div>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
