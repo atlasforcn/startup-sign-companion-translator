@@ -1,5 +1,21 @@
 # SIGN 你身邊：手語轉語音情境翻譯 App Demo
 
+## 快速看懂
+
+![startup-sign-companion-translator 功能截圖](docs/preview.png)
+
+- 線上 Demo：https://atlasforcn.github.io/startup-sign-companion-translator/
+- 這個原型在做什麼：把 SIGN 你身邊做成手語轉語音情境翻譯 App。
+- 特色定位：特色是高對比、可讀性優先，清楚呈現辨識狀態、翻譯文字與播報佇列。
+- 操作流程：模擬開啟鏡頭與手勢辨識 → 選擇手勢片段並產生即時翻譯 → 加入語音播報佇列與對話紀錄
+
+<details>
+<summary>展開完整功能流程截圖</summary>
+
+![startup-sign-companion-translator 完整功能流程截圖](docs/flow.png)
+
+</details>
+
 這是一個可直接用瀏覽器開啟的靜態興趣原型，實作「【SIGN你身邊】全台首創即時『手語轉語音』的中文繁體APP」概念。Demo 以高對比、可讀性優先的互動介面呈現，模擬手語片段辨識、即時中文翻譯、語音播報佇列、常用語快速卡、對話紀錄與無障礙設定。
 
 ## 比賽與來源資訊
@@ -44,4 +60,3 @@
 - `styles.css`：響應式高對比介面樣式
 - `app.js`：互動狀態、模擬辨識、播報佇列與無障礙控制
 - `SOURCE.md`：資料來源與原型限制說明
-
