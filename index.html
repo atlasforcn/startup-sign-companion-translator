@@ -11,6 +11,40 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <!-- repo-snapshot:start -->
+    <section class="repo-snapshot repo-snapshot--chat" aria-label="專案辨識預覽：SIGN 你身邊" style="--snap-bg: #0f1115; --snap-bg-2: #242936; --snap-ink: #f8f9ef; --snap-muted: #c7ccd4; --snap-accent: #f4c542; --snap-accent-2: #4db6ff;">
+      <div class="snapshot-copy">
+        <p class="snapshot-kicker">Sign-to-speech companion</p>
+        <div class="snapshot-name">SIGN 你身邊</div>
+        <p class="snapshot-tagline">手語辨識、語音輸出與即時情境翻譯，截圖要直接看見溝通介面。</p>
+        <div class="snapshot-chips" aria-label="核心辨識元素">
+        <span>手語辨識</span>
+        <span>語音輸出</span>
+        <span>情境翻譯</span>
+        </div>
+      </div>
+      <div class="snapshot-scene" aria-hidden="true">
+        <div class="snapshot-device">
+          <div class="snapshot-device-head">
+            <span>Live translate</span>
+            <strong>我要詢問掛號櫃台</strong>
+          </div>
+          <div class="snapshot-visual snapshot-visual--chat">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="snapshot-data-row">
+          <span><b>96</b>辨識</span>
+          <span><b>2s</b>延遲</span>
+          <span><b>5</b>情境</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- repo-snapshot:end -->
+    <div class="demo-boundary" role="note">
+      <strong>Prototype</strong>
+      <span>靜態互動原型；畫面資料、評分、AI、金流、醫療、法律與安全流程皆為示範，不代表原團隊官方產品或實際服務。</span>
+    </div>
     <a class="skip-link" href="#app">跳到操作介面</a>
 
     <header class="site-header">
@@ -20,46 +54,51 @@
           <h1>SIGN 你身邊</h1>
           <p class="lead">全台首創即時「手語轉語音」中文繁體 App 概念情境原型</p>
         </div>
-        <section class="source-panel" aria-labelledby="source-title">
-          <h2 id="source-title">比賽與來源資訊</h2>
-          <dl class="source-list">
-            <div>
-              <dt>比賽來源</dt>
-              <dd>大專校院創新創業實戰模擬學習平臺</dd>
-            </div>
-            <div>
-              <dt>年度</dt>
-              <dd>111 年（2022）</dd>
-            </div>
-            <div>
-              <dt>屆次/階段</dt>
-              <dd>第一梯次成功案例</dd>
-            </div>
-            <div>
-              <dt>團隊/公司</dt>
-              <dd>Deep Course</dd>
-            </div>
-            <div>
-              <dt>學校</dt>
-              <dd>國立政治大學</dd>
-            </div>
-            <div>
-              <dt>類別</dt>
-              <dd>ICT</dd>
-            </div>
-            <div>
-              <dt>作品名稱</dt>
-              <dd>【SIGN你身邊】全台首創即時『手語轉語音』的中文繁體APP</dd>
-            </div>
-            <div>
-              <dt>官方來源</dt>
-              <dd><a href="https://ssp.moe.gov.tw/cases/153">ssp.moe.gov.tw/cases/153</a></dd>
-            </div>
-          </dl>
-          <p class="disclaimer">
-            免責聲明：這是依公開得獎資訊與概念自行製作的興趣原型，不是原團隊官方 demo 或產品。本 demo 使用情境化模擬，不包含真正電腦視覺辨識模型。
-          </p>
-        </section>
+        <details class="source-panel source-disclosure" aria-labelledby="source-title">
+          <summary>
+            <span>比賽與來源資訊</span>
+            <strong id="source-title">Deep Course｜SIGN 你身邊</strong>
+          </summary>
+          <div class="source-body">
+            <dl class="source-list">
+              <div>
+                <dt>比賽來源</dt>
+                <dd>大專校院創新創業實戰模擬學習平臺</dd>
+              </div>
+              <div>
+                <dt>年度</dt>
+                <dd>111 年（2022）</dd>
+              </div>
+              <div>
+                <dt>屆次/階段</dt>
+                <dd>第一梯次成功案例</dd>
+              </div>
+              <div>
+                <dt>團隊/公司</dt>
+                <dd>Deep Course</dd>
+              </div>
+              <div>
+                <dt>學校</dt>
+                <dd>國立政治大學</dd>
+              </div>
+              <div>
+                <dt>類別</dt>
+                <dd>ICT</dd>
+              </div>
+              <div>
+                <dt>作品名稱</dt>
+                <dd>【SIGN你身邊】全台首創即時『手語轉語音』的中文繁體APP</dd>
+              </div>
+              <div>
+                <dt>官方來源</dt>
+                <dd><a href="https://ssp.moe.gov.tw/cases/153">ssp.moe.gov.tw/cases/153</a></dd>
+              </div>
+            </dl>
+            <p class="disclaimer">
+              免責聲明：這是依公開得獎資訊與概念自行製作的興趣原型，不是原團隊官方 demo 或產品。本 demo 使用情境化模擬，不包含真正電腦視覺辨識模型。
+            </p>
+          </div>
+        </details>
       </div>
     </header>
 
@@ -224,4 +263,3 @@
     <script src="app.js"></script>
   </body>
 </html>
-
